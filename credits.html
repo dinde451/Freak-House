@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credits - Freak House</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: fadeIn 2s ease-in;
+        }
+
+        h1, h3 {
+            font-family: 'Creepster', sans-serif;
+            color: #ff6347;
+            text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347;
+            animation: flicker 1.5s infinite alternate;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+
+        p, ul {
+            font-size: 18px;
+            margin-top: 20px;
+            text-shadow: 1px 1px 5px black, 0 0 25px red, 0 0 5px darkred;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #ff4500;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 30px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.8);
+            transition: 0.3s;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 69, 0, 0.5);
+            transition: 0.4s ease;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        button:hover::after {
+            width: 0;
+            height: 0;
+        }
+
+        button:hover {
+            color: #ff6347;
+            box-shadow: 0 0 25px rgba(255, 69, 0, 1.2);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease;
+        }
+
+        /* Animation Effects */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flicker {
+            0% {
+                text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347;
+            }
+            50% {
+                text-shadow: 0 0 2px #ff6347, 0 0 5px #ff6347;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Additional spooky hover effects */
+        p:hover, li:hover {
+            color: #ff6347;
+            text-shadow: 1px 1px 5px black, 0 0 20px red, 0 0 30px darkred;
+            cursor: pointer;
+            transform: scale(1.05);
+            transition: 0.2s ease;
+        }
+
+        /* Background and spooky atmosphere */
+        ::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://example.com/spooky-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            z-index: -1;
+            opacity: 0.4;
+            animation: opacityChange 3s infinite alternate;
+        }
+
+        @keyframes opacityChange {
+            0% {
+                opacity: 0.3;
+            }
+            100% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+    <!-- Google Font for Creepster -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Credits</h1>
+
+    <p><strong>Game Developer:</strong> Dinde451</p>
+    <p><strong>Images:</strong> Created by Dinde451</p>
+
+    <h3>Music Used:</h3>
+    <ul>
+        <li>Ominous Horror Soundtrack - HorrorScapes</li>
+        <li>The Emperor's New Nikes - DJ Williams</li>
+        <li>My Way - Frank Sinatra</li>
+    </ul>
+	<br><br>
+    <p>Custom JavaScript, CSS, and HTML by Dinde451</p>
+    <p>Some assets were generated with AI tools</p>
+    <p><strong>Created using:</strong> TurboWarp</p>
+
+    <button onclick="window.location.href='index.html'">Back to Menu</button>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freak House</title>
+  <style>
+	body, html { 
+	margin: 0; 
+	padding: 0; 
+	width: 100%; 
+	height: 100%; 
+	font-family: 'Courier New', monospace; 
+	background-color: black; 
+	color: white; 
+	overflow: hidden; 
+	cursor: pointer; 
+	} 
+	
+	/* VHS Noise Overlay */
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif');
+    opacity: 0.05;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 100;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+  }
+	
+	/* Menu Styles */ 
+	#menu {
+	position: absolute; 
+	width: 100%; 
+	height: 100%; 
+	display: flex; 
+	flex-direction: column; 
+	justify-content: center; 
+	align-items: center; 
+	z-index: 20; 
+	background-color: black;
+	} 
+	
+	/* Title */
+  h1 {
+    font-family: 'Creepster', cursive
+    color: #b30000;
+    font-size: 4em;
+    text-shadow: 0 0 10px #b30000, 0 0 30px black;
+    margin-bottom: 80px;
+    animation: glitch 2s infinite;
+  }
+
+  @keyframes glitch {
+    0% { text-shadow: 2px 2px #ff0000, -2px -2px #000; }
+    20% { text-shadow: -2px -1px #990000, 2px 2px #000; }
+    40% { text-shadow: 2px -2px #660000, -2px 2px #000; }
+    60% { text-shadow: -2px 2px #ff0000, 2px -2px #000; }
+    100% { text-shadow: 2px 2px #990000, -2px -2px #000; }
+  }
+	
+	/* Buttons */
+  button {
+    background: transparent;
+    border: 2px solid #b30000;
+    color: #b30000;
+    padding: 15px 40px;
+    font-size: 18px;
+    margin: 15px;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    transition: 0.2s ease-in-out;
+    text-transform: uppercase;
+  }
+
+  button:hover {
+    background: #b30000;
+    color: black;
+    box-shadow: 0 0 20px #b30000;
+  }
+
+  /* Subtle flicker on hover */
+  button:hover {
+    animation: flicker 0.1s infinite alternate;
+  }
+
+  @keyframes flicker {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+  }
+
+	/* Prologue Styles */ 
+	#text {
+	font-size: 1.5em;
+	opacity: 0;
+	transition: opacity 2s;
+	text-align: center;
+	max-width: 800px;
+	line-height: 1.5em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	display: none;
+	}
+	
+	#image { 
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transition: opacity 2s;
+	z-index: 5;
+	} 
+	
+	iframe { 
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
+	z-index: 15;
+	} 
+	@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap'); 
+	</style>
+
+</head>
+<body>
+
+  <!-- Menu -->
+  <div id="menu">
+    <h1>Freak House</h1>
+    <button id="startBtn">Start Game</button>
+    <button onclick="window.location.href='credits.html'">Credits</button>
+  </div>
+
+  <!-- Prologue -->
+  <div id="text"></div>
+
+  <!-- Game iframe -->
+  <iframe id="gameFrame" src="game/index.html"></iframe>
+
+  <script>
+    const prologue = [
+	   { text: "FREAK'S HOUSE"},
+      { text: "In a quiet little town, the snow falls heavy."},
+      { text: "But beneath the silence, fear has taken root."},
+      { text: "Four children have vanished, leaving only grief and unanswered prayers."},
+      { text: "One night, a stranger entered the church, asking for confession."},
+      { text: "Behind the screen, his voice was low, broken by laughter."},
+      { text: "\"It was me. I took them. And I will take more.\""},
+      { text: "The priest begged the police to act — but no one believed him."},
+      { text: "Weeks passed. More children disappeared."},
+      { text: "Desperate and alone, the priest swore he would stop the man himself.",},
+      { text: "He saw the man again. He followed him."},
+      { text: "Into the storm... Into the dark... He fell... Deep... Deep... And when he awoke… He was no longer in the world he knew."}
+    ];
+
+    const startBtn = document.getElementById('startBtn');
+    const menu = document.getElementById('menu');
+    const textEl = document.getElementById('text');
+    const gameFrame = document.getElementById('gameFrame');
+
+    let index = 0;
+    let currentAudio = null;
+
+	function showNext() {
+		if (index >= prologue.length) {
+			// End of prologue → redirect to main.html
+			window.location.href = "main.html";
+		return;
+  }
+
+      const { text } = prologue[index];
+
+      textEl.style.opacity = 0;
+      textEl.style.display = "block";
+
+      setTimeout(() => {
+        textEl.innerText = text;
+        textEl.style.opacity = 1;
+
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio = null;
+        }
+
+        currentAudio = new Audio(`audio/${index + 1}.wav`);
+        currentAudio.play().catch(err => console.warn("Audio error:", err));
+
+        currentAudio.addEventListener("ended", () => {
+          setTimeout(() => {
+            index++;
+            showNext();
+          }, 500);
+        });
+
+      }, 200);
+    }
+
+    startBtn.addEventListener("click", () => {
+      menu.style.display = "none"; // hide menu
+      showNext();
+    });
+
+    // Click during prologue → skip to next
+    document.body.addEventListener("click", (e) => {
+      if (textEl.style.display === "block") {
+        if (currentAudio) currentAudio.pause();
+        index++;
+        showNext();
+      }
+    });
+  </script>
+</body>
+</html>
