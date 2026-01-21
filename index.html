@@ -151,19 +151,28 @@
   <iframe id="gameFrame" src="game/index.html"></iframe>
 
   <script>
+	  let menuAudio = new Audio("audio/menu.mp3");
+		menuAudio.loop = true;
+		menuAudio.volume = 0.4;
+		
+		document.body.addEventListener("click", () => {
+			if (menu.style.display !== "none" && menuAudio.paused) {
+				menuAudio.play().catch(() => {});
+			}
+		}, { once: true });
+
     const prologue = [
-	   { text: "FREAK'S HOUSE"},
+	   { text: "FREAK HOUSE"},
       { text: "In a quiet little town, the snow falls heavy."},
       { text: "But beneath the silence, fear has taken root."},
-      { text: "Four children have vanished, leaving only grief and unanswered prayers."},
+      { text: "Four babies have vanished, leaving to their mothers only grief and unanswered prayers."},
       { text: "One night, a stranger entered the church, asking for confession."},
       { text: "Behind the screen, his voice was low, broken by laughter."},
-      { text: "\"It was me. I took them. And I will take more.\""},
+      { text: "\"It was me. I took them. And I will take more. Said the man.\""},
       { text: "The priest begged the police to act — but no one believed him."},
-      { text: "Weeks passed. More children disappeared."},
+      { text: "Weeks passed. More babies disappeared."},
       { text: "Desperate and alone, the priest swore he would stop the man himself.",},
       { text: "He saw the man again. He followed him."},
-      { text: "Into the storm... Into the dark... He fell... Deep... Deep... And when he awoke… He was no longer in the world he knew."}
     ];
 
     const startBtn = document.getElementById('startBtn');
@@ -176,8 +185,7 @@
 
 	function showNext() {
 		if (index >= prologue.length) {
-			// End of prologue → redirect to main.html
-			window.location.href = "main.html";
+			window.location.href = "game.html";
 		return;
   }
 
@@ -195,7 +203,7 @@
           currentAudio = null;
         }
 
-        currentAudio = new Audio(`audio/${index + 1}.wav`);
+        currentAudio = new Audio(`audio/${index + 1}.mp3`);
         currentAudio.play().catch(err => console.warn("Audio error:", err));
 
         currentAudio.addEventListener("ended", () => {
@@ -209,11 +217,12 @@
     }
 
     startBtn.addEventListener("click", () => {
-      menu.style.display = "none"; // hide menu
+      menu.style.display = "none";
+      menuAudio.pause();
+	  menuAudio.currentTime = 0;
       showNext();
     });
 
-    // Click during prologue → skip to next
     document.body.addEventListener("click", (e) => {
       if (textEl.style.display === "block") {
         if (currentAudio) currentAudio.pause();
