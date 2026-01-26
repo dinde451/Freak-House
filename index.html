@@ -1,235 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Freak House</title>
-  <style>
-	body, html { 
-	margin: 0; 
-	padding: 0; 
-	width: 100%; 
-	height: 100%; 
-	font-family: 'Courier New', monospace; 
-	background-color: black; 
-	color: white; 
-	overflow: hidden; 
-	cursor: pointer; 
-	} 
-	
-	/* VHS Noise Overlay */
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif');
-    opacity: 0.05;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    z-index: 100;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-  }
-	
-	/* Menu Styles */ 
-	#menu {
-	position: absolute; 
-	width: 100%; 
-	height: 100%; 
-	display: flex; 
-	flex-direction: column; 
-	justify-content: center; 
-	align-items: center; 
-	z-index: 20; 
-	background-color: black;
-	} 
-	
-	/* Title */
-  h1 {
-    font-family: 'Creepster', cursive
-    color: #b30000;
-    font-size: 4em;
-    text-shadow: 0 0 10px #b30000, 0 0 30px black;
-    margin-bottom: 80px;
-    animation: glitch 2s infinite;
-  }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freak House</title>
 
-  @keyframes glitch {
-    0% { text-shadow: 2px 2px #ff0000, -2px -2px #000; }
-    20% { text-shadow: -2px -1px #990000, 2px 2px #000; }
-    40% { text-shadow: 2px -2px #660000, -2px 2px #000; }
-    60% { text-shadow: -2px 2px #ff0000, 2px -2px #000; }
-    100% { text-shadow: 2px 2px #990000, -2px -2px #000; }
-  }
-	
-	/* Buttons */
-  button {
-    background: transparent;
-    border: 2px solid #b30000;
-    color: #b30000;
-    padding: 15px 40px;
-    font-size: 18px;
-    margin: 15px;
-    border-radius: 2px;
-    letter-spacing: 2px;
-    transition: 0.2s ease-in-out;
-    text-transform: uppercase;
-  }
+<link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/img/favicon.ico" type="image/x-icon">
 
-  button:hover {
-    background: #b30000;
-    color: black;
-    box-shadow: 0 0 20px #b30000;
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  color: white;
+  background: url("assets/img/background.png") center / cover no-repeat fixed;
+}
+
+/* WIND */
+#wind {
+  position: fixed;
+  inset: -10%;
+  background: url("assets/img/noise.png") repeat;
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: windMove 2.5s linear infinite;
+  z-index: 5;
+}
+
+@keyframes windMove {
+  from {
+    transform: translate(0, 0) scale(1.05);
   }
-
-  /* Subtle flicker on hover */
-  button:hover {
-    animation: flicker 0.1s infinite alternate;
+  to {
+    transform: translate(-10%, 6%) scale(1.05);
   }
+}
 
-  @keyframes flicker {
-    from { opacity: 0.8; }
-    to { opacity: 1; }
-  }
+/* SCREENS */
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 20;
+}
 
-	/* Prologue Styles */ 
-	#text {
-	font-size: 1.5em;
-	opacity: 0;
-	transition: opacity 2s;
-	text-align: center;
-	max-width: 800px;
-	line-height: 1.5em;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 10;
-	display: none;
-	}
-	
-	#image { 
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	opacity: 0;
-	transition: opacity 2s;
-	z-index: 5;
-	} 
-	
-	iframe { 
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border: none;
-	z-index: 15;
-	} 
-	@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap'); 
-	</style>
+#menu {
+  display: flex;
+   background: rgba(0,0,0,0.75);
+}
 
+/* FOCUS OVERLAY */
+#focusOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0); /* start transparent */
+  pointer-events: none; /* don’t block clicks */
+  z-index: 10; /* below screens but above background */
+  transition: background 0.5s ease-in-out;
+}
+
+/* TITLE */
+h1 {
+  font-family: 'Creepster', cursive;
+  color: #b30000;
+  font-size: 4em;
+  text-shadow: 0 0 10px #b30000, 0 0 30px black;
+  margin-bottom: 60px;
+}
+
+#titleH1 {
+  width: 400px; /* or any size you want */
+  height: 120px; /* match your image height */
+  margin-bottom: 80px;
+
+  /* hide the text */
+  text-indent: -9999px;
+  overflow: hidden;
+
+  background: url("assets/img/title.png") no-repeat center/contain;
+  filter: brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(7000%) hue-rotate(-1deg) brightness(100%) contrast(100%);
+}
+
+/* BUTTONS */
+button {
+  background: transparent;
+  border: 2px solid #b30000;
+  color: #b30000;
+  padding: 15px 40px;
+  font-size: 18px;
+  margin: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #b30000;
+  color: black;
+  box-shadow: 0 0 20px #b30000;
+}
+
+/* PROLOGUE */
+#text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+  font-size: 1.5em;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 2s;
+  display: none;
+  z-index: 15;
+}
+
+/* CHAPTERS */
+#chapters {
+  background: rgba(0,0,0,0.75);
+}
+
+/* CREDITS */
+#credits {
+  text-align: center;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.75);
+}
+
+#credits h1, #credits h3 {
+  font-family: 'Creepster', cursive;
+  color: #ff6347;
+}
+
+#credits p, #credits li {
+  font-size: 18px;
+  margin: 10px;
+}
+</style>
 </head>
 <body>
 
-  <!-- Menu -->
-  <div id="menu">
-    <h1>Freak House</h1>
-    <button id="startBtn">Start Game</button>
-    <button onclick="window.location.href='credits.html'">Credits</button>
-  </div>
+<div id="wind"></div>
+<div id="focusOverlay"></div>
 
-  <!-- Prologue -->
-  <div id="text"></div>
+<!-- MENU -->
+<div id="menu" class="screen">
+  <h1 id="titleH1">Freak House</h1>
+  <button id="chaptersBtn">Select Chapter</button>
+  <button id="creditsBtn">Credits</button>
+</div>
 
-  <!-- Game iframe -->
-  <iframe id="gameFrame" src="game/index.html"></iframe>
+<!-- CHAPTER MENU -->
+<div id="chapters" class="screen">
+  <h1>Chapters</h1>
+  <button onclick="startChapter(1)">Chapter 1 – Descent into the House</button>
+  <button disabled>Chapter 2 – Coming Soon</button>
+  <button id="backFromChaptersBtn">Back to Menu</button>
+</div>
 
-  <script>
-	  let menuAudio = new Audio("audio/menu.mp3");
-		menuAudio.loop = true;
-		menuAudio.volume = 0.4;
-		
-		document.body.addEventListener("click", () => {
-			if (menu.style.display !== "none" && menuAudio.paused) {
-				menuAudio.play().catch(() => {});
-			}
-		}, { once: true });
+<!-- CREDITS -->
+<div id="credits" class="screen">
+  <h1>Credits</h1>
 
-    const prologue = [
-	   { text: "FREAK HOUSE"},
-      { text: "In a quiet little town, the snow falls heavy."},
-      { text: "But beneath the silence, fear has taken root."},
-      { text: "Four babies have vanished, leaving to their mothers only grief and unanswered prayers."},
-      { text: "One night, a stranger entered the church, asking for confession."},
-      { text: "Behind the screen, his voice was low, broken by laughter."},
-      { text: "\"It was me. I took them. And I will take more. Said the man.\""},
-      { text: "The priest begged the police to act — but no one believed him."},
-      { text: "Weeks passed. More babies disappeared."},
-      { text: "Desperate and alone, the priest swore he would stop the man himself.",},
-      { text: "He saw the man again. He followed him."},
-    ];
+  <p><strong>Game Developer:</strong> Dinde451</p>
+  <p><strong>Images:</strong> Created by Dinde451</p>
 
-    const startBtn = document.getElementById('startBtn');
-    const menu = document.getElementById('menu');
-    const textEl = document.getElementById('text');
-    const gameFrame = document.getElementById('gameFrame');
+  <ul>
+    <li>Ominous Horror Soundtrack (Free royalty music) – HorrorScapes</li>
+    <li>The Emperor's New Nikes (Free royalty music) – DJ Williams</li>
+    <li>The Way Out (Game Cinematics)– Dinde451</li>
+    <li>Freak House (Start Menu) - Dinde451</li>
+  </ul>
 
-    let index = 0;
-    let currentAudio = null;
+  <p>Custom JavaScript, CSS & HTML by Dinde451</p>
+  <p>Some assets were created with the help of AI tools</p>
 
-	function showNext() {
-		if (index >= prologue.length) {
-			window.location.href = "game.html";
-		return;
-  }
+  <button id="backBtn">Back to Menu</button>
+</div>
 
-      const { text } = prologue[index];
+<!-- PROLOGUE -->
+<div id="text"></div>
 
-      textEl.style.opacity = 0;
-      textEl.style.display = "block";
+<script>
+const focusOverlay = document.getElementById("focusOverlay");
+const menu = document.getElementById("menu");
+const chapters = document.getElementById("chapters");
+const credits = document.getElementById("credits");
+const textEl = document.getElementById("text");
 
-      setTimeout(() => {
+function openScreen(screen) {
+    screen.style.display = "flex";
+    focusOverlay.style.background = "rgba(0,0,0,0.5)";
+}
+
+function closeScreen(screen) {
+    screen.style.display = "none";
+    focusOverlay.style.background = "rgba(0,0,0,0)";
+}
+
+// Menu audio
+let menuAudio = new Audio("assets/audio/menu.mp3");
+menuAudio.loop = true;
+menuAudio.volume = 0.4;
+menuAudio.preload = "auto";
+menuAudio.muted = true;
+
+// Unlock audio
+document.addEventListener("click", () => {
+    menuAudio.muted = false;
+    menuAudio.play().catch(() => {});
+}, { once: true });
+
+// Prologue
+const prologue = [
+    { text: "FREAK HOUSE" },
+    { text: "In a quiet little town, the snow falls heavy." },
+    { text: "But beneath the silence, fear has taken root." },
+    { text: "Four babies have vanished, leaving to their mothers only grief and unanswered prayers." },
+    { text: "One night, a stranger entered the church, asking for confession." },
+    { text: "Behind the screen, his voice was low, broken by laughter." },
+    { text: "\"It was me. I took them. And I will take more. Said the man.\"" },
+    { text: "The priest begged the police to act — but no one believed him." },
+    { text: "Weeks passed. More babies disappeared." },
+    { text: "Desperate and alone, the priest swore he would stop the man himself." },
+    { text: "He saw the man again. He followed him." },
+];
+
+let index = 0;
+let currentAudio = null;
+
+function showNext() {
+    if (index >= prologue.length) {
+        window.location.href = "game/1/game.html";
+        return;
+    }
+    const { text } = prologue[index];
+    textEl.style.opacity = 0;
+    textEl.style.display = "block";
+    setTimeout(() => {
         textEl.innerText = text;
         textEl.style.opacity = 1;
-
         if (currentAudio) {
-          currentAudio.pause();
-          currentAudio = null;
+            currentAudio.pause();
+            currentAudio = null;
         }
-
-        currentAudio = new Audio(`audio/${index + 1}.mp3`);
+        currentAudio = new Audio(`assets/audio/${index + 1}.mp3`);
         currentAudio.play().catch(err => console.warn("Audio error:", err));
-
         currentAudio.addEventListener("ended", () => {
-          setTimeout(() => {
-            index++;
-            showNext();
-          }, 500);
+            setTimeout(() => {
+                index++;
+                showNext();
+            }, 500);
         });
+    }, 200);
+}
 
-      }, 200);
+// Chapter menu
+document.getElementById("chaptersBtn").onclick = () => {
+    menu.style.display = "none";
+    openScreen(chapters);
+};
+
+document.getElementById("backFromChaptersBtn").onclick = () => {
+    closeScreen(chapters);
+    menu.style.display = "flex";
+};
+
+// Credits
+document.getElementById("creditsBtn").onclick = () => {
+    menu.style.display = "none";
+    openScreen(credits);
+};
+
+document.getElementById("backBtn").onclick = () => {
+    closeScreen(credits);
+    menu.style.display = "flex";
+};
+
+// Start chapters
+function startChapter(number) {
+    menu.style.display = "none";
+    chapters.style.display = "none";
+    menuAudio.pause();
+    menuAudio.currentTime = 0;
+
+    if (number === 1) {
+        index = 0; // reset prologue
+        showNext();
+    } else {
+        alert("This chapter is coming soon");
     }
+}
 
-    startBtn.addEventListener("click", () => {
-      menu.style.display = "none";
-      menuAudio.pause();
-	  menuAudio.currentTime = 0;
-      showNext();
-    });
-
-    document.body.addEventListener("click", (e) => {
-      if (textEl.style.display === "block") {
+// Click to advance prologue
+document.body.addEventListener("click", (e) => {
+    if (textEl.style.display === "block") {
         if (currentAudio) currentAudio.pause();
         index++;
         showNext();
-      }
-    });
-  </script>
+    }
+});
+
+// Screens default
+menu.style.display = "flex";
+chapters.style.display = "none";
+credits.style.display = "none";
+</script>
 </body>
 </html>
