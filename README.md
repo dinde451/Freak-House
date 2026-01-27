@@ -42,6 +42,6 @@ You can contribute in many ways, including:
 - **Bug Reports** — help improve stability and performance
 
 If you want to join the conversation, propose ideas, or submit work, head over to the
-[Freak House Discussions Channel](https://github.com/dinde451/Freak-House/discussions)
+[Official Freak House Discord Server](https://discord.gg/2HDdCuEaUm)
 
 Pull Requests and Issues are always welcome.
