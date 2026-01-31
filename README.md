@@ -18,7 +18,7 @@ The game is meant to be played in your [internet browser](https://dinde451.githu
 **Mouse** : Move player's camera
 **Mouse Primary Button** : Shoot
 **Mouse Middle Button** : Close Notes
-**Mouse Secondary button** : Toggle aim (While you aim you can't Dash and you move more slowly)
+**Mouse Secondary button** : Toggle aim (While you aim you can't Dash)
 
 **W** : Move forward
 **S** : Move backward
