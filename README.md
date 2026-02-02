@@ -26,7 +26,7 @@ The game is meant to be played in your [internet browser](https://dinde451.githu
 **D** : Move to the right
 
 **Q** : Quick Weapon Toggle
-**I** : Open Inventory
+**P** : Pause
 **Space** : Dash (You can't dash if you are currently aiming)
 
 ## Contributing
