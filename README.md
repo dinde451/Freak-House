@@ -2,23 +2,12 @@
 
 Freak House is a fast‑paced, story‑driven first‑person shooter. You’ll run, shoot, and outsmart your way through labyrinthine arenas packed with hostile creatures.
 
-## How the Game Is Made
-
-The game is built using:
-
-- **HTML/CSS/JS** for structure
-- **SB3** The game is entirely made in **SB3** and then compiled to JS using [Turbowarp](https://github.com/TurboWarp/)
-
-
-## Downloading the Game
-The game is meant to be played in your [internet browser](https://dinde451.github.io/Freak-House/), but you can download the game to play locally. You just have to clone this repository and run it into a local server.
-
 ## How to Play
 
 **Mouse** : Move player's camera
 **Mouse Primary Button** : Shoot
 **Mouse Middle Button** : Close Notes
-**Mouse Secondary button** : Toggle aim (While you aim you can't Dash)
+**Mouse Secondary button** : Toggle gun grip (One hand / Two hands)
 
 **W** : Move forward
 **S** : Move backward
@@ -27,7 +16,19 @@ The game is meant to be played in your [internet browser](https://dinde451.githu
 
 **Q** : Quick Weapon Toggle
 **P** : Pause
-**Space** : Dash (You can't dash if you are currently aiming)
+**Space** : Dash
+
+## Settings
+
+You can access the settings by pressing "P". There you will find the following options :
+
+**Resolution** : Choose between High, Medium, and Low. Selecting Low disables ceiling rendering for a significant performance boost.
+**Sensitivity** : Adjust mouse look sensitivity to your preference.
+**Camera Lock** : Locks the camera on the X axis. The game was designed with this enabled — disabling it may cause unexpected behavior.
+
+## How the Game Is Made
+
+Freak House is authored entirely in SB3, then compiled to JavaScript via [Turbowarp](https://github.com/TurboWarp/). The final product runs as a standard web page hosted on Github. If you wish to see the source code you can check our [Github repo](https://github.com/dinde451/Freak-House).
 
 ## Contributing
 
