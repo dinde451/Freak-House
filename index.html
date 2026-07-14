@@ -53,16 +53,11 @@
                 z-index: 0;
             }
             @keyframes windDrift {
-                from {
-                    transform: translate(0, 0) scale(1.05);
-                }
-                to {
-                    transform: translate(-10%, 6%) scale(1.05);
-                }
+                from { transform: translate(0, 0) scale(1.05); }
+                to   { transform: translate(-10%, 6%) scale(1.05); }
             }
 
             /* <(---------- CRT EFFECTS ----------)> */
-
             #crt-scanlines {
                 position: fixed;
                 inset: 0;
@@ -78,12 +73,8 @@
                 animation: scanlineShift 8s linear infinite;
             }
             @keyframes scanlineShift {
-                0% {
-                    background-position: 0 0;
-                }
-                100% {
-                    background-position: 0 240px;
-                }
+                0%   { background-position: 0 0; }
+                100% { background-position: 0 240px; }
             }
 
             #crt-vignette {
@@ -100,7 +91,8 @@
                 pointer-events: none;
                 z-index: 99;
                 mix-blend-mode: screen;
-                background: radial-gradient(ellipse at 0% 50%, rgba(255, 0, 0, 0.04) 0%, transparent 60%),
+                background:
+                    radial-gradient(ellipse at 0% 50%, rgba(255, 0, 0, 0.04) 0%, transparent 60%),
                     radial-gradient(ellipse at 100% 50%, rgba(0, 80, 255, 0.04) 0%, transparent 60%);
             }
 
@@ -131,7 +123,6 @@
                 color: #c40000;
                 font-size: 3em;
                 margin-bottom: 60px;
-                /* Chromatic aberration on title */
                 text-shadow:
                     -2px 0 0 rgba(255, 0, 0, 0.6),
                     2px 0 0 rgba(0, 0, 180, 0.4),
@@ -141,8 +132,7 @@
                 image-rendering: pixelated;
             }
             @keyframes titleJitter {
-                0%,
-                100% {
+                0%, 100% {
                     letter-spacing: normal;
                     text-shadow:
                         -2px 0 0 rgba(255, 0, 0, 0.6),
@@ -150,9 +140,7 @@
                         0 0 12px rgba(180, 0, 0, 0.8),
                         0 0 40px #000;
                 }
-                88% {
-                    letter-spacing: normal;
-                }
+                88% { letter-spacing: normal; }
                 89% {
                     letter-spacing: 1px;
                     text-shadow:
@@ -161,9 +149,7 @@
                         0 0 20px rgba(200, 0, 0, 1),
                         0 0 40px #000;
                 }
-                90% {
-                    letter-spacing: normal;
-                }
+                90% { letter-spacing: normal; }
             }
 
             /* <(---------- BUTTONS ----------)> */
@@ -297,15 +283,15 @@
             }
 
             #credits .credits-columns {
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				gap: 60px;
-				max-width: 900px;
-				width: 100%;
-				margin: 0 auto 40px;
-				justify-items: start;
-				padding: 0 40px;
-			}
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 60px;
+                max-width: 900px;
+                width: 100%;
+                margin: 0 auto 40px;
+                justify-items: start;
+                padding: 0 40px;
+            }
 
             #credits h2 {
                 font-family: "Press Start 2P", monospace;
@@ -315,6 +301,16 @@
                 letter-spacing: 3px;
                 text-transform: uppercase;
                 border-bottom: 1px solid rgba(200, 0, 0, 0.2);
+                padding-bottom: 4px;
+            }
+            
+            #credits h3 {
+                font-family: "Press Start 2P", monospace;
+                color: rgba(255, 255, 255, 0.5);
+                margin: 28px 0 8px;
+                font-size: 7px;
+                letter-spacing: 3px;
+                text-transform: uppercase;
                 padding-bottom: 4px;
             }
 
@@ -362,6 +358,28 @@
                 margin: 20px auto 0;
             }
 
+			.va-tabs {
+				display: flex;
+				gap: 0;
+				margin: 8px 0 14px;
+			}
+			
+			.va-tab {
+				font-family: "Press Start 2P", monospace;
+				font-size: 8px;
+				letter-spacing: 2px;
+				color: rgba(255,255,255,0.4);
+				background: transparent;
+				border: 1px solid rgba(196,0,0,0.3);
+				padding: 7px 14px;
+				cursor: pointer;
+				text-transform: uppercase;
+				transition: color 0.08s steps(2), background 0.08s steps(2);
+			}
+
+			.va-tab:hover { color: rgba(255,255,255,0.7); background: rgba(180,0,0,0.1); }
+
+			.va-tab.va-tab-active { color: #fff; border-left-color: #c40000; background: rgba(180,0,0,0.15); }
             /* <(---------- PROLOGUE ----------)> */
             #prologue {
                 position: fixed;
@@ -395,24 +413,24 @@
                 mix-blend-mode: normal;
                 transition: opacity 0.15s steps(3);
             }
-            
+
             #skip-prompt {
-				position: fixed;
-				bottom: 32px;
-				right: 40px;
-				font-size: 9px;
-				letter-spacing: 4px;
-				color: rgba(255, 255, 255, 0.25);
-				text-transform: uppercase;
-				z-index: 25;
-				cursor: pointer;
-				display: none;
-				transition: color 0.1s steps(2);
-			}
-			
-			#skip-prompt:hover {
-				color: rgba(255, 255, 255, 0.7);
-			}
+                position: fixed;
+                bottom: 32px;
+                right: 40px;
+                font-size: 9px;
+                letter-spacing: 4px;
+                color: rgba(255, 255, 255, 0.25);
+                text-transform: uppercase;
+                z-index: 25;
+                cursor: pointer;
+                display: none;
+                transition: color 0.1s steps(2);
+            }
+
+            #skip-prompt:hover {
+                color: rgba(255, 255, 255, 0.7);
+            }
 
             /* <(---------- PRESS PROMPT ----------)> */
             #press-prompt {
@@ -429,27 +447,218 @@
                 display: none;
             }
             @keyframes promptBlink {
-                0%,
-                49% {
-                    opacity: 1;
-                }
-                50%,
-                100% {
-                    opacity: 0;
-                }
+                0%, 49%  { opacity: 1; }
+                50%, 100% { opacity: 0; }
             }
 
-            /* <(---------- SCROLLBAR ----------)>*/
-            ::-webkit-scrollbar {
-                width: 6px;
+            /* <(---------- GAME IFRAME ----------)> */
+            #game-container {
+                position: fixed;
+                inset: 0;
+                z-index: 200;
+                display: none;
+                background: #000;
             }
-            ::-webkit-scrollbar-track {
-                background: #0a0a0a;
+
+            #game-iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+                display: block;
             }
-            ::-webkit-scrollbar-thumb {
-                background: #5a0000;
-                border-radius: 0;
+
+            /* <(---------- GAME HUD ----------)> */
+            #game-hud {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 50;
+                z-index: 210;
+                display: none;
+                align-items: center;
+                gap: 20px;
+                padding: 10px 20px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+                pointer-events: none;
+                opacity: 0;
+                transition: opacity 0.3s steps(3);
             }
+
+            #game-hud.hud-visible {
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            #hud-back-btn {
+                font-family: "Press Start 2P", monospace;
+                font-size: 9px;
+                letter-spacing: 3px;
+                color: rgba(255,255,255,0.5);
+                background: transparent;
+                border: 1px solid rgba(196,0,0,0.5);
+                border-left: 3px solid #c40000;
+                padding: 7px 14px;
+                cursor: pointer;
+                text-transform: uppercase;
+                transition: color 0.08s steps(2), background 0.08s steps(2);
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            #hud-back-btn:hover {
+                color: #fff;
+                background: rgba(180,0,0,0.2);
+                text-shadow: 0 0 8px rgba(200,0,0,0.6);
+            }
+            #hud-back-btn:active {
+                color: #c40000;
+            }
+
+            #hud-volume-wrap {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+            }
+
+            #hud-vol-icon {
+                font-size: 10px;
+                color: rgba(255,255,255,0.4);
+                letter-spacing: 0;
+                user-select: none;
+            }
+
+            #hud-volume {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 100px;
+                height: 4px;
+                background: rgba(255,255,255,0.15);
+                outline: none;
+                cursor: pointer;
+                border: none;
+                image-rendering: pixelated;
+            }
+            #hud-volume::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                width: 10px;
+                height: 14px;
+                background: #c40000;
+                cursor: pointer;
+                border: none;
+                box-shadow: 0 0 4px rgba(200,0,0,0.7);
+            }
+            #hud-volume::-moz-range-thumb {
+                width: 10px;
+                height: 14px;
+                background: #c40000;
+                cursor: pointer;
+                border: none;
+                box-shadow: 0 0 4px rgba(200,0,0,0.7);
+            }
+
+            #hud-hint {
+                font-size: 7px;
+                letter-spacing: 2px;
+                color: rgba(255,255,255,0.2);
+                text-transform: uppercase;
+                margin-left: auto;
+                user-select: none;
+            }
+            
+            #hud-reset-btn {
+				font-family: "Press Start 2P", monospace;
+				font-size: 9px;
+				letter-spacing: 3px;
+				color: rgba(255,255,255,0.5);
+				background: transparent;
+				border: 1px solid rgba(196,0,0,0.5);
+				border-left: 3px solid #c40000;
+				padding: 7px 14px;
+				cursor: pointer;
+				text-transform: uppercase;
+				transition: color 0.08s steps(2), background 0.08s steps(2);
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+            
+            #hud-controls-btn {
+				font-family: "Press Start 2P", monospace;
+				font-size: 9px;
+				letter-spacing: 3px;
+				color: rgba(255,255,255,0.5);
+				background: transparent;
+				border: 1px solid rgba(196,0,0,0.5);
+				border-left: 3px solid #c40000;
+				padding: 7px 14px;
+				cursor: pointer;
+				text-transform: uppercase;
+				transition: color 0.08s steps(2), background 0.08s steps(2);
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+
+			#hud-controls-btn:hover {
+				color: #fff;
+				background: rgba(180,0,0,0.2);
+				text-shadow: 0 0 8px rgba(200,0,0,0.6);
+			}
+
+			#controls-pane {
+				position: fixed;
+				top: 48px;
+				left: 20px;
+				z-index: 210;
+				background: rgba(0,0,0,0.88);
+				border: 1px solid rgba(196,0,0,0.4);
+				border-left: 3px solid #c40000;
+				padding: 16px 20px;
+				display: none;
+				min-width: 220px;
+			}
+			
+			#controls-title {
+				font-family: "Press Start 2P", monospace;
+				font-size: 9px;
+				letter-spacing: 3px;
+				color: #c40000;
+				text-transform: uppercase;
+				margin-bottom: 14px;
+			}
+			
+			#controls-list {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+			}
+			
+			#controls-list li {
+				font-family: "Press Start 2P", monospace;
+				font-size: 8px;
+				color: rgba(255,255,255,0.7);
+				letter-spacing: 1px;
+				display: flex;
+				align-items: center;
+				gap: 12px;
+			}
+			
+			.key {
+				color: #fff;
+				background: rgba(196,0,0,0.25);
+				border: 1px solid rgba(196,0,0,0.5);
+				padding: 3px 6px;
+				font-size: 7px;
+				white-space: nowrap;
+				min-width: 60px;
+				text-align: center;
+			}
+
+            /* <(---------- SCROLLBAR ----------)> */
+            ::-webkit-scrollbar { width: 6px; }
+            ::-webkit-scrollbar-track { background: #0a0a0a; }
+            ::-webkit-scrollbar-thumb { background: #5a0000; border-radius: 0; }
         </style>
     </head>
     <body>
@@ -470,7 +679,7 @@
             <h1>Freak House</h1>
             <div id="menu-sub">— Chapter Select —</div>
             <nav class="ps-menu">
-                <button id="chaptersBtn">New Game / Continue</button>
+                <button id="chaptersBtn">Start</button>
                 <button id="creditsBtn">Credits</button>
             </nav>
         </div>
@@ -480,7 +689,8 @@
             <h1 style="font-size: 2.5em; margin-bottom: 40px">Select Chapter</h1>
             <nav class="ps-menu">
                 <button id="chapter1Btn">Chapter I — Descent into the House</button>
-                <button disabled aria-disabled="true">Chapter II — Coming Soon</button>
+                <button id="chapter2Btn">Chapter II — The Missing Girl</button>
+                <button id="chapter3Btn" disabled>Chapter III — Coming Soon!</button>
                 <button id="backFromChaptersBtn">↩ Back</button>
             </nav>
         </div>
@@ -498,118 +708,170 @@
 
                     <h2>Artists</h2>
                     <ul>
-                        <li>Dinde451 – Texture &amp; Sprite Artist</li>
+                        <li>Dinde451 – Texture &amp; Sprite</li>
                         <li><a href="https://gd.games/LizzyGoober" target="_blank">LizzyGoober</a> – UI Artist</li>
                     </ul>
-                </section>
 
-                <section>
                     <h2>Composer / SFX</h2>
                     <ul>
-                        <li><a href="https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg" target="_blank">Alicia Wan (Aethereali)</a> – Composer</li>
+                        <li><a href="https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg" target="_blank">Alicia Wan (Aethereali)</a> – pianist</li>
                         <li><a href="https://www.instagram.com/abril_liberfarb?igsh=dzd1dDhldXZ4cnF4" target="_blank">Abril Liberfarb</a> – Sound Designer</li>
-                        <li><a href="https://eloinerichonpro.wixsite.com/soundbyelo" target="_blank">Eloïne Richon</a> – Menu Theme &amp; Audio Engineering</li>
-                    </ul>
-
-                    <h2>Voice Actors</h2>
-                    <ul>
-						<li class="va"><div style="width:36px;height:36px;flex-shrink:0;"></div><a href="https://linktr.ee/WisdomOfCenturies" target="_blank">Victoria Dutcher</a> – Narration</li>
-						<li class="va"><img src="assets/img/VA/abductor.png" alt="" /><a href="https://linktr.ee/chrisandersonii" target="_blank">Chris Anderson II</a> – The Abductor</li>
-						<li class="va"><img src="assets/img/VA/survivor1.png" alt="" />Isaac Brown – Owen</li>
-						<li class="va"><img src="assets/img/VA/corrupt.png" alt="" /><a href="https://www.castingcall.club/arronclearyvo" target="_blank">Arron Cleary</a> – Walter</li>
-						<li class="va"><img src="assets/img/VA/survivor3.png" alt="" /><a href="https://www.instagram.com/rappaccinis_daughter/" target="_blank">Daphne Forbes</a> – Nora</li>
-						<li class="va"><img src="assets/img/VA/eater.png" alt="" /><a href="https://youtube.com/@fsnaterbater?si=s268TAsGE2e3pz8H" target="_blank">FsNaterbater</a> – The Eater</li>
-						<li class="va"><img src="assets/img/VA/miner.png" alt="" /><a href="https://www.twitch.tv/glephneirva" target="_blank">GlephneirVA</a> – The Miner</li>
-						<li class="va"><img src="assets/img/VA/keeper.png" alt="" /><a href="https://www.castingcall.club/amongvoices" target="_blank">Karl Christopher Kamekawa</a> – The Keeper</li>
-						<li class="va"><img src="assets/img/VA/survivor2.png" alt="" /><a href="https://bsky.app/profile/nobletheofficial.bsky.social" target="_blank">T. J. Noble</a> – Caleb</li>
-						<li class="va"><img src="assets/img/VA/entity.png" alt="" /><a href="https://www.twitch.tv/omegatc" target="_blank">OmegaTC</a> – The Entity</li>
-						<li class="va"><img src="assets/img/VA/bob.png" alt="" />Owen117Spartan – Bob</li>
-						<li class="va"><img src="assets/img/VA/fatherOlson.png" alt="" /><a href="https://cstng.cc/practical_mongoose" target="_blank">Practical Mongoose</a> – Father Olson</li>
-						<li class="va"><img src="assets/img/VA/cop.png" alt="" /><a href="https://www.youtube.com/channel/UCx4C8wWcnQCjl5_R-s3Svdg" target="_blank">Succulent</a> – Det. Marsh</li>
+                        <li><a href="https://eloinerichonpro.wixsite.com/soundbyelo" target="_blank">Eloïne Richon</a> – Audio Engineering &amp; Chapter II Soundtrack</li>
                     </ul>
                 </section>
+                
+                <section>
+				<h2>Voice Actors</h2>
+				<div class="va-tabs">
+					<button class="va-tab va-tab-active" onclick="switchVaTab(1)">Chapter I</button>
+					<button class="va-tab"               onclick="switchVaTab(2)">Chapter II</button>
+				</div>
+
+				<ul class="va-list" id="va-ch1">
+					<li class="va"><img src="assets/img/VA/1/fatherOlson.png" alt=""/><a href="https://cstng.cc/practical_mongoose" target="_blank">Practical Mongoose</a> – Father Olson</li>
+					<li class="va"><img src="assets/img/VA/1/abductor.png" alt=""/><a href="https://linktr.ee/chrisandersonii" target="_blank">Chris Anderson II</a> – The Abductor</li>
+					<li class="va"><img src="assets/img/VA/1/bob.png" alt=""/>Owen117Spartan – Bob</li>
+					<li class="va"><img src="assets/img/VA/1/survivor2.png" alt=""/><a href="https://bsky.app/profile/nobletheofficial.bsky.social" target="_blank">T. J. Noble</a> – Caleb</li>
+					<li class="va"><img src="assets/img/VA/1/eater.png" alt=""/><a href="https://youtube.com/@fsnaterbater?si=s268TAsGE2e3pz8H" target="_blank">FsNaterbater</a> – The Eater</li>
+					<li class="va"><img src="assets/img/VA/1/entity.png" alt=""/><a href="https://www.twitch.tv/omegatc" target="_blank">OmegaTC</a> – The Entity</li>
+					<li class="va"><img src="assets/img/VA/1/keeper.png" alt=""/><a href="https://www.castingcall.club/amongvoices" target="_blank">Karl Christopher Kamekawa</a> – The Keeper</li>
+					<li class="va"><img src="assets/img/VA/1/cop.png" alt=""/><a href="https://www.youtube.com/channel/UCx4C8wWcnQCjl5_R-s3Svdg" target="_blank">Succulent</a> – Det. Marsh</li>
+					<li class="va"><img src="assets/img/VA/1/miner.png" alt=""/><a href="https://www.twitch.tv/glephneirva" target="_blank">GlephneirVA</a> – The Miner</li>
+					<li class="va"><div style="width:36px;height:36px;flex-shrink:0;"></div><a href="https://linktr.ee/WisdomOfCenturies" target="_blank">Vic Danvers</a> – Narration</li>
+					<li class="va"><img src="assets/img/VA/1/survivor3.png" alt=""/><a href="https://www.instagram.com/rappaccinis_daughter/" target="_blank">Daphne Forbes</a> – Nora</li>
+					<li class="va"><img src="assets/img/VA/1/survivor1.png" alt=""/>Isaac Brown – Owen</li> 
+					<li class="va"><img src="assets/img/VA/1/corrupt.png" alt=""/><a href="https://x.com/ArronClearyVO" target="_blank">Arron Cleary</a> – Walter</li>
+				</ul>
+
+				<ul class="va-list" id="va-ch2" style="display:none">
+					<li class="va"><img src="assets/img/VA/2/Sheffield.png" alt=""/><a href="https://x.com/ArronClearyVO" target="_blank">Arron Cleary</a> – Dick Sheffield</li>
+					<li class="va"><img src="assets/img/VA/1/abductor.png" alt=""/><a href="https://linktr.ee/chrisandersonii" target="_blank">Chris Anderson II</a> – The Abductor</li>
+					<li class="va"><img src="assets/img/VA/2/Ballerina.png" alt=""/><a href="https://youtube.com/@theemmaluisa?si=tDItE7BXiiQ5TJWn" target="_blank">Emma Luisa</a> – The Ballerina</li>
+					<li class="va"><img src="assets/img/VA/2/cop.png" alt=""/><a href="https://www.twitch.tv/f5_twisster" target="_blank">F5_ Twisster</a> – Chief of Police</li>
+					<li class="va"><img src="assets/img/VA/2/Cornwell.png" alt=""/><a href="https://www.instagram.com/rappaccinis_daughter/" target="_blank">Daphne Forbes</a> – Ms. Cornwell</li>
+					<li class="va"><img src="assets/img/VA/2/Dorothy.png" alt=""/><a href="https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg" target="_blank">Alicia Wan</a> – Dorothy Jenkins</li>
+					<li class="va"><img src="assets/img/VA/1/entity.png" alt=""/><a href="https://www.twitch.tv/omegatc" target="_blank">OmegaTC</a> – The Entity</li>
+					<li class="va"><img src="assets/img/VA/2/Olson.png" alt=""/><a href="https://lewissaundersvo.com/" target="_blank">Lewis Saunders</a> – Father Olson</li>
+					<li class="va"><img src="assets/img/VA/2/Infant.png" alt=""/><a href="https://linktr.ee/nathanleonti" target="_blank">Nathan Leonti</a> – The Infant</li>
+					<li class="va"><img src="assets/img/VA/2/John.png" alt=""/>EthanXThomas – John</li>
+					<li class="va"><img src="assets/img/VA/1/keeper.png" alt=""/><a href="https://www.castingcall.club/amongvoices" target="_blank">Karl Christopher Kamekawa</a> – The Keeper</li>
+					<li class="va"><img src="assets/img/VA/2/Possesed.png" alt=""/><a href="https://bsky.app/profile/biscuitoas.bsky.social" target="_blank">BiscuitOnAStick</a> – The Possessed</li>
+					<li class="va"><img src="assets/img/VA/2/corrupt.png" alt=""/>Isaac Brown – Walter</li>
+					<li class="va"><img src="assets/img/VA/2/Witch.png" alt=""/><a href="https://linktr.ee/WisdomOfCenturies" target="_blank">Vic Danvers</a> – The Witch</li>
+				</ul>
+			</section>
             </div>
 
             <nav class="ps-menu">
-				<button id="backBtn">↩ Back to Menu</button>
-			</nav>
+                <button id="backBtn">↩ Back to Menu</button>
+            </nav>
         </div>
 
         <!---------- PROLOGUE ---------->
         <div id="prologue"></div>
 
-        <script>
-			/* <(---------- MENU NAV ----------)> */
-			document.addEventListener("keydown", function (e) {
-				if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
-				const buttons = [...document.querySelectorAll(".screen.active .ps-menu button:not([disabled])")];
-				if (!buttons.length) return;
-				const current = document.activeElement;
-				const index = buttons.indexOf(current);
-				if (e.key === "ArrowDown") {
-					const next = buttons[index + 1] ?? buttons[0];
-					next.focus();
-				} else {
-					const prev = buttons[index - 1] ?? buttons[buttons.length - 1];
-					prev.focus();
-				}
-				e.preventDefault();
-				playBeep(880, 0.04, 0.05);
-			});
-			
-            /* <(---------- CLICK SOUND ----------)> */
-			function playBeep(freq, dur, vol) {
-				try {
-					var ctx = new (window.AudioContext || window.webkitAudioContext)();
-					var osc = ctx.createOscillator();
-					var gain = ctx.createGain();
-					osc.connect(gain);
-					gain.connect(ctx.destination);
-					osc.type = "square";
-					osc.frequency.value = freq || 440;
-					var t = ctx.currentTime + 0.01;
-					gain.gain.setValueAtTime(vol || 0.08, t);
-					gain.gain.exponentialRampToValueAtTime(0.0001, t + (dur || 0.07));
-					osc.start(t);
-					osc.stop(t + (dur || 0.07));
-					osc.addEventListener("ended", function() {
-						ctx.close();
-					});
-					} catch (e) {}
-			}
-			
-            document.addEventListener("mouseover", function (e) {
-				var btn = e.target.closest(".ps-menu button");
-				if (!btn || btn.disabled) return;
-				playBeep(880, 0.04, 0.05);
-			});
+        <!---------- GAME IFRAME + HUD ---------->
+        <div id="game-container">
+            <iframe id="game-iframe" src="" allowfullscreen></iframe>
+        </div>
 
-            /* <(---------- DITHER FLASH ----------)>*/
+        <div id="game-hud">
+            <button id="hud-back-btn">↩ Menu</button>
+            <button id="hud-controls-btn">? Controls</button>
+            <div id="controls-pane">
+				<div id="controls-title">Controls</div>
+					<ul id="controls-list">
+						<li><span class="key">W A S D</span> Move</li>
+						<li><span class="key">Mouse</span> Look</li>
+						<li><span class="key">Mouse Left Click</span> Shoot</li>
+						<li><span class="key">Mouse Right Click</span> Change Gun Grip</li>
+						<li><span class="key">P</span> Pause</li>
+						<li><span class="key">Space</span> Dash Chapter I / Punch Chapter II</li>
+					</ul>
+				</div>
+			</div>
+
+        <script>
+			/* <(---------- Credits tabs ----------)> */
+			function switchVaTab(chapter) {
+				document.getElementById("va-ch1").style.display = chapter === 1 ? "" : "none";
+				document.getElementById("va-ch2").style.display = chapter === 2 ? "" : "none";
+				document.querySelectorAll(".va-tab").forEach(function(btn, i) {
+				btn.classList.toggle("va-tab-active", i + 1 === chapter);
+				});
+			}
+            /* <(---------- MENU NAV ----------)> */
+            document.addEventListener("keydown", function (e) {
+                if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+                var buttons = [...document.querySelectorAll(".screen.active .ps-menu button:not([disabled])")];
+                if (!buttons.length) return;
+                var current = document.activeElement;
+                var index = buttons.indexOf(current);
+                if (e.key === "ArrowDown") {
+                    var next = buttons[index + 1] ?? buttons[0];
+                    next.focus();
+                } else {
+                    var prev = buttons[index - 1] ?? buttons[buttons.length - 1];
+                    prev.focus();
+                }
+                e.preventDefault();
+                playBeep(880, 0.04, 0.05);
+            });
+
+            /* <(---------- CLICK SOUND ----------)> */
+            function playBeep(freq, dur, vol) {
+                try {
+                    var ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    var osc = ctx.createOscillator();
+                    var gain = ctx.createGain();
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.type = "square";
+                    osc.frequency.value = freq || 440;
+                    var t = ctx.currentTime + 0.01;
+                    gain.gain.setValueAtTime(vol || 0.08, t);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, t + (dur || 0.07));
+                    osc.start(t);
+                    osc.stop(t + (dur || 0.07));
+                    osc.addEventListener("ended", function () { ctx.close(); });
+                } catch (e) {}
+            }
+
+            document.addEventListener("mouseover", function (e) {
+                var btn = e.target.closest(".ps-menu button");
+                if (!btn || btn.disabled) return;
+                playBeep(880, 0.04, 0.05);
+            });
+
+            /* <(---------- DITHER FLASH ----------)> */
             var ditherEl = document.getElementById("dither");
             function ditherFlash(cb) {
-				ditherEl.style.opacity = "1";
-				setTimeout(function () { if (cb) cb(); }, 120);
-				setTimeout(function () { ditherEl.style.opacity = "0"; }, 240);
-			}
+                ditherEl.style.opacity = "1";
+                setTimeout(function () { if (cb) cb(); }, 120);
+                setTimeout(function () { ditherEl.style.opacity = "0"; }, 240);
+            }
 
             /* <(---------- SCREEN LOGIC ----------)> */
-            var focusOverlay = document.getElementById("focusOverlay");
-            var menuScreen = document.getElementById("menu");
-            var chaptersScreen = document.getElementById("chapters");
-            var creditsScreen = document.getElementById("credits");
-            var prologueEl = document.getElementById("prologue");
-            var pressPrompt = document.getElementById("press-prompt");
+            var focusOverlay    = document.getElementById("focusOverlay");
+            var menuScreen      = document.getElementById("menu");
+            var chaptersScreen  = document.getElementById("chapters");
+            var creditsScreen   = document.getElementById("credits");
+            var prologueEl      = document.getElementById("prologue");
+            var pressPrompt     = document.getElementById("press-prompt");
+            var gameContainer   = document.getElementById("game-container");
+            var gameIframe      = document.getElementById("game-iframe");
+            var gameHud         = document.getElementById("game-hud");
 
             function showScreen(screen) {
-				screen.style.display = "flex";
-				screen.classList.add("active");
-				focusOverlay.style.background = "rgba(0,0,0,0.45)";
-			}
+                screen.style.display = "flex";
+                screen.classList.add("active");
+                focusOverlay.style.background = "rgba(0,0,0,0.45)";
+            }
 
-			function hideScreen(screen) {
-				screen.style.display = "none";
-				screen.classList.remove("active");
-			}
+            function hideScreen(screen) {
+                screen.style.display = "none";
+                screen.classList.remove("active");
+            }
 
             function goToMenu() {
                 ditherFlash(function () {
@@ -624,112 +886,160 @@
             showScreen(menuScreen);
 
             document.addEventListener("click", function unlockAudio() {
-				menuAudio.muted = false;
-				menuAudio.play().catch(function () {});
-				prologueMusic.muted = true;
-				prologueMusic.play().catch(function () {});
+                menuAudio.muted = false;
+                menuAudio.play().catch(function () {});
+                prologueMusic.muted = true;
+                prologueMusic.play().catch(function () {});
+                prologueMusic.pause();
+                prologueMusic.muted = false;
+                document.removeEventListener("click", unlockAudio);
+            });
+
+            /* <(---------- MENU AUDIO ----------)> */
+            var menuAudio = new Audio("assets/audio/menu/M2.mp3");
+            menuAudio.volume = 0.2;
+            var prologueMusic = new Audio("assets/audio/menu/M1.mp3");
+            prologueMusic.volume = 0.4;
+            menuAudio.loop = true;
+            menuAudio.muted = true;
+
+            function stopMenuAudio() {
+                menuAudio.pause();
+                menuAudio.currentTime = 0;
+            }
+
+            /* <(---------- GAME IFRAME LOGIC ----------)> */
+            function launchGame(path) {
+                gameIframe.src = path;
+                gameContainer.style.display = "block";
+                gameHud.style.display = "flex";
+                showHud();
+            }
+
+            function closeGame() {
+				gameIframe.src = "";
 				prologueMusic.pause();
-				prologueMusic.muted = false;
-				document.removeEventListener("click", unlockAudio);
+				prologueMusic.currentTime = 0;
+				ditherFlash(function () {
+					gameContainer.style.display = "none";
+					gameHud.style.display = "none";
+					gameHud.classList.remove("hud-visible");
+					menuAudio.currentTime = 0;
+					menuAudio.play().catch(function () {});
+					showScreen(menuScreen);
+				});
+			}
+
+            function showHud() {
+				gameHud.classList.add("hud-visible");
+			}
+
+            document.getElementById("hud-back-btn").addEventListener("click", function () {
+                playBeep(440, 0.08);
+                closeGame();
+            });
+            
+            document.getElementById("hud-controls-btn").addEventListener("click", function () {
+				playBeep(660, 0.05);
+				var pane = document.getElementById("controls-pane");
+				pane.style.display = pane.style.display === "block" ? "none" : "block";
 			});
 
-            /* <(---------- MENU AUDIO ----------)>*/
-            var menuAudio = new Audio("assets/audio/menu/M2.mp3");
-			menuAudio.volume = 0.2;
-			var prologueMusic = new Audio("assets/audio/menu/M1.mp3");
-			prologueMusic.volume = 0.4;
-			menuAudio.loop = true;
-			menuAudio.muted = true;
-
-			function stopMenuAudio() {
-				menuAudio.pause();
-				menuAudio.currentTime = 0;
-			}
-			
             /* <(---------- PROLOGUE ----------)> */
             var PROLOGUE = [
                 { text: "Chapter I — Descent into the House", audio: "1.mp3" },
                 { text: "In a quiet little town, the snow falls heavy.", audio: "2.mp3" },
                 { text: "Beneath the silence, fear has taken root.", audio: "3.mp3" },
-                { text: "Four babies have vanished, leaving their mothers with nothing but grief and unanswered prayers.", audio: "4.mp3",},
+                { text: "Four babies have vanished, leaving their mothers with nothing but grief and unanswered prayers.", audio: "4.mp3" },
                 { text: "One night, a stranger entered the church, asking for confession.", audio: "5.mp3" },
                 { text: "Behind the screen, his voice was low, broken by sudden bursts of laughter.", audio: "6.mp3" },
                 { text: "\u201cIt was me. I took them. And I will take more,\u201d said the man.", audio: "7.mp3" },
-                { text: "The priest went to the police and begged them to act, but no one believed him.", audio: "8.mp3",},
+                { text: "The priest went to the police and begged them to act, but no one believed him.", audio: "8.mp3" },
                 { text: "Weeks passed. More babies disappeared.", audio: "9.mp3" },
-                { text: "Desperate and alone, the priest swore that he himself would put an end to this evil.", audio: "10.mp3",},
+                { text: "Desperate and alone, the priest swore that he himself would put an end to this evil.", audio: "10.mp3" },
                 { text: "When he saw the stranger again, he followed him\u2026", audio: "11.mp3" },
             ];
 
-            var prologueIndex = 0;
-            var prologueAudio = null;
-            var isTransitioning = false;
-            var inPrologue = false;
+            var prologueIndex    = 0;
+            var prologueAudio    = null;
+            var isTransitioning  = false;
+            var inPrologue       = false;
+            var pendingAdvance   = false;
+            var pendingChapter   = "";
+            var prologueCancelled = false;
 
-            function startPrologue() {
-                prologueIndex = 0;
-                prologueAudio = null;
+            function startPrologue(chapterPath) {
+                pendingChapter = chapterPath;
+                prologueIndex  = 0;
+                prologueAudio  = null;
+                prologueCancelled = false;
                 pressPrompt.style.display = "block";
-                skipPrompt.style.display = "block";
+                skipPrompt.style.display  = "block";
                 showPrologueSlide();
             }
 
             function showPrologueSlide() {
-				if (prologueIndex >= PROLOGUE.length) {
-					pressPrompt.style.display = "none";
-					window.location.href = "game/1/index.html";
-					inPrologue = false;
-					return;
-				}
+                if (prologueIndex >= PROLOGUE.length) {
+                    pressPrompt.style.display = "none";
+                    prologueEl.style.opacity = "0";
+                    setTimeout(function () {
+                        prologueEl.style.display = "none";
+                        inPrologue = false;
+                        prologueMusic.pause();
+						prologueMusic.currentTime = 0;
+                        launchGame(pendingChapter);
+                    }, 400);
+                    return;
+                }
 
-				var slide = PROLOGUE[prologueIndex];
-				isTransitioning = true;
-				prologueEl.style.opacity = 0;
+                var slide = PROLOGUE[prologueIndex];
+                isTransitioning = true;
+                prologueEl.style.opacity = "0";
 
-				setTimeout(function () {
-					prologueEl.textContent = slide.text;
-					prologueEl.style.opacity = 1;
-					isTransitioning = false;
-					playPrologueAudio(slide.audio);
-				}, 250);
-			}
+                setTimeout(function () {
+					if (prologueCancelled) return;
+                    prologueEl.textContent = slide.text;
+                    prologueEl.style.opacity = "1";
+                    isTransitioning = false;
+                    playPrologueAudio(slide.audio);
+                }, 250);
+            }
 
-			function playPrologueAudio(file) {
-				if (prologueAudio) {
-					prologueAudio.pause();
-					prologueAudio.src = "";
-					prologueAudio.load();
-					prologueAudio = null;
-				}
-				setTimeout(function () {
-				var audio = new Audio("assets/audio/" + file);
-				var capturedIndex = prologueIndex;
-				audio.volume = 1;
-				prologueAudio = audio;
-				audio.play().catch(function (err) { console.warn("Audio:", err); });
-				audio.addEventListener("ended", function () {
-				if (prologueIndex !== capturedIndex) return;
-					setTimeout(advancePrologue, 300);
-				});
-				if (pendingAdvance) advancePrologue();
-				}, 50);
-			}
+            function playPrologueAudio(file) {
+                if (prologueAudio) {
+                    prologueAudio.pause();
+                    prologueAudio.src = "";
+                    prologueAudio.load();
+                    prologueAudio = null;
+                }
+                setTimeout(function () {
+					if (prologueCancelled) return;
+                    var audio = new Audio("assets/audio/" + file);
+                    var capturedIndex = prologueIndex;
+                    audio.volume = 1;
+                    prologueAudio = audio;
+                    audio.play().catch(function (err) { console.warn("Audio:", err); });
+                    audio.addEventListener("ended", function () {
+                        if (prologueIndex !== capturedIndex) return;
+                        setTimeout(advancePrologue, 300);
+                    });
+                    if (pendingAdvance) advancePrologue();
+                }, 50);
+            }
 
-			var pendingAdvance = false;
-
-			function advancePrologue() {
-				if (isTransitioning) {
-					pendingAdvance = true;
-					return;
-				}
-				pendingAdvance = false;
-				if (prologueAudio) {
-					prologueAudio.pause();
-					prologueAudio = null;
-				}
-				prologueIndex++;
-				showPrologueSlide();
-			}
+            function advancePrologue() {
+                if (isTransitioning) {
+                    pendingAdvance = true;
+                    return;
+                }
+                pendingAdvance = false;
+                if (prologueAudio) {
+                    prologueAudio.pause();
+                    prologueAudio = null;
+                }
+                prologueIndex++;
+                showPrologueSlide();
+            }
 
             document.body.addEventListener("click", function () {
                 if (inPrologue) {
@@ -737,7 +1047,7 @@
                     advancePrologue();
                 }
             });
-            
+
             document.addEventListener("keydown", function (e) {
                 if ((e.key === " " || e.key === "Enter") && inPrologue) {
                     e.preventDefault();
@@ -745,17 +1055,24 @@
                     advancePrologue();
                 }
             });
-            
+
             var skipPrompt = document.getElementById("skip-prompt");
 
-			skipPrompt.addEventListener("click", function () {
+            skipPrompt.addEventListener("click", function () {
 				if (!inPrologue) return;
 				playBeep(440, 0.08);
+				prologueCancelled = true;
 				if (prologueAudio) { prologueAudio.pause(); prologueAudio = null; }
 				pressPrompt.style.display = "none";
-				skipPrompt.style.display = "none";
+				skipPrompt.style.display  = "none";
+				prologueEl.style.opacity  = "0";
 				inPrologue = false;
-				window.location.href = "game/1/index.html";
+				setTimeout(function () {
+					prologueEl.style.display = "none";
+					prologueMusic.pause();
+					prologueMusic.currentTime = 0;
+					launchGame(pendingChapter);
+				}, 300);
 			});
 
             /* <(---------- BUTTON WIRING ----------)> */
@@ -786,15 +1103,25 @@
             });
 
             document.getElementById("chapter1Btn").addEventListener("click", function () {
-				playBeep(880, 0.1);
-				hideScreen(menuScreen);
-				hideScreen(chaptersScreen);
-				stopMenuAudio();
-				prologueEl.style.display = "flex";
-				prologueMusic.play().catch(function () {});
-				startPrologue();
-				setTimeout(function () { inPrologue = true; }, 100);
-			});
+                playBeep(880, 0.1);
+                hideScreen(menuScreen);
+                hideScreen(chaptersScreen);
+                stopMenuAudio();
+                prologueEl.style.display = "flex";
+                prologueMusic.play().catch(function () {});
+                startPrologue("game/1/index.html");
+                setTimeout(function () { inPrologue = true; }, 100);
+            });
+
+            document.getElementById("chapter2Btn").addEventListener("click", function () {
+                playBeep(880, 0.1);
+                ditherFlash(function () {
+                    hideScreen(menuScreen);
+                    hideScreen(chaptersScreen);
+                    stopMenuAudio();
+                    launchGame("game/2/index.html");
+                });
+            });
         </script>
     </body>
 </html>
