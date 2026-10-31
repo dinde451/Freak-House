@@ -1,0 +1,299 @@
+{
+	"chapters": [
+		{
+			"id": "ch1",
+			"label": "Chapter I",
+			"category": "chapter",
+			"sections": [
+				{ "role": "Game Developer", "items": ["Dinde451"] },
+				{
+					"role": "Artists",
+					"items": [
+						"Dinde451 – Texture &amp; Sprite",
+						"<a href=\"https://gd.games/LizzyGoober\" target=\"_blank\">LizzyGoober</a> – UI Artist"
+					]
+				},
+				{
+					"role": "Composer / SFX",
+					"items": [
+						"<a href=\"https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg\" target=\"_blank\">Alicia Wan (Aethereali)</a> – Pianist",
+						"<a href=\"https://www.instagram.com/abril_liberfarb?igsh=dzd1dDhldXZ4cnF4\" target=\"_blank\">Abril Liberfarb</a> – Sound Designer",
+						"<a href=\"https://eloinerichonpro.wixsite.com/soundbyelo\" target=\"_blank\">Eloïne Richon</a> – Audio Engineering"
+					]
+				},
+				{
+					"role": "Voice Actors",
+					"va": [
+						{
+							"img": "assets/img/VA/1/fatherOlson.png",
+							"url": "https://cstng.cc/practical_mongoose",
+							"name": "Practical Mongoose",
+							"part": "Father Olson"
+						},
+						{
+							"img": "assets/img/VA/1/abductor.png",
+							"url": "https://linktr.ee/chrisandersonii",
+							"name": "Chris Anderson II",
+							"part": "The Abductor"
+						},
+						{
+							"img": "assets/img/VA/1/bob.png",
+							"name": "Owen117Spartan",
+							"part": "Bob"
+						},
+						{
+							"img": "assets/img/VA/1/survivor2.png",
+							"url": "https://bsky.app/profile/nobletheofficial.bsky.social",
+							"name": "T. J. Noble",
+							"part": "Caleb"
+						},
+						{
+							"img": "assets/img/VA/1/eater.png",
+							"url": "https://youtube.com/@fsnaterbater?si=s268TAsGE2e3pz8H",
+							"name": "FsNaterbater",
+							"part": "The Eater"
+						},
+						{
+							"img": "assets/img/VA/1/entity.png",
+							"url": "https://www.twitch.tv/omegatc",
+							"name": "OmegaTC",
+							"part": "The Entity"
+						},
+						{
+							"img": "assets/img/VA/1/keeper.png",
+							"url": "https://www.castingcall.club/amongvoices",
+							"name": "Karl Christopher Kamekawa",
+							"part": "The Keeper"
+						},
+						{
+							"img": "assets/img/VA/1/cop.png",
+							"url": "https://www.youtube.com/channel/UCx4C8wWcnQCjl5_R-s3Svdg",
+							"name": "Succulent",
+							"part": "Det. Marsh"
+						},
+						{
+							"img": "assets/img/VA/1/miner.png",
+							"url": "https://www.twitch.tv/glephneirva",
+							"name": "GlephneirVA",
+							"part": "The Miner"
+						},
+						{
+							"url": "https://linktr.ee/WisdomOfCenturies",
+							"name": "Vic Danvers",
+							"part": "Narration"
+						},
+						{
+							"img": "assets/img/VA/1/survivor3.png",
+							"url": "https://www.instagram.com/rappaccinis_daughter/",
+							"name": "Daphne Forbes",
+							"part": "Nora"
+						},
+						{
+							"img": "assets/img/VA/1/survivor1.png",
+							"name": "Isaac Brown",
+							"part": "Owen"
+						},
+						{
+							"img": "assets/img/VA/1/corrupt.png",
+							"url": "https://x.com/ArronClearyVO",
+							"name": "Arron Cleary",
+							"part": "Walter"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "ch2",
+			"label": "Chapter II",
+			"category": "chapter",
+			"sections": [
+				{ "role": "Game Developer", "items": ["Dinde451"] },
+				{
+					"role": "Artists",
+					"items": [
+						"Dinde451 – Texture &amp; Sprite",
+						"<a href=\"https://gd.games/LizzyGoober\" target=\"_blank\">LizzyGoober</a> – UI Artist"
+					]
+				},
+				{
+					"role": "Composer / SFX",
+					"items": [
+						"<a href=\"https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg\" target=\"_blank\">Alicia Wan (Aethereali)</a> – Pianist",
+						"<a href=\"https://www.instagram.com/abril_liberfarb?igsh=dzd1dDhldXZ4cnF4\" target=\"_blank\">Abril Liberfarb</a> – Sound Designer",
+						"<a href=\"https://eloinerichonpro.wixsite.com/soundbyelo\" target=\"_blank\">Eloïne Richon</a> – Music Composer"
+					]
+				},
+				{
+					"role": "Voice Actors",
+					"va": [
+						{
+							"img": "assets/img/VA/2/Sheffield.png",
+							"url": "https://x.com/ArronClearyVO",
+							"name": "Arron Cleary",
+							"part": "Dick Sheffield"
+						},
+						{
+							"img": "assets/img/VA/1/abductor.png",
+							"url": "https://linktr.ee/chrisandersonii",
+							"name": "Chris Anderson II",
+							"part": "The Abductor"
+						},
+						{
+							"img": "assets/img/VA/2/Ballerina.png",
+							"url": "https://youtube.com/@theemmaluisa?si=tDItE7BXiiQ5TJWn",
+							"name": "Emma Luisa",
+							"part": "The Ballerina"
+						},
+						{
+							"img": "assets/img/VA/2/cop.png",
+							"url": "https://www.twitch.tv/f5_twisster",
+							"name": "F5_ Twisster",
+							"part": "Chief of Police"
+						},
+						{
+							"img": "assets/img/VA/2/Cornwell.png",
+							"url": "https://www.instagram.com/rappaccinis_daughter/",
+							"name": "Daphne Forbes",
+							"part": "Ms. Cornwell"
+						},
+						{
+							"img": "assets/img/VA/2/Dorothy.png",
+							"url": "https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg",
+							"name": "Alicia Wan",
+							"part": "Dorothy Jenkins"
+						},
+						{
+							"img": "assets/img/VA/1/entity.png",
+							"url": "https://www.twitch.tv/omegatc",
+							"name": "OmegaTC",
+							"part": "The Entity"
+						},
+						{
+							"img": "assets/img/VA/2/Olson.png",
+							"url": "https://lewissaundersvo.com/",
+							"name": "Lewis Saunders",
+							"part": "Father Olson"
+						},
+						{
+							"img": "assets/img/VA/2/Infant.png",
+							"url": "https://linktr.ee/nathanleonti",
+							"name": "Nathan Leonti",
+							"part": "The Infant"
+						},
+						{
+							"img": "assets/img/VA/2/John.png",
+							"name": "EthanXThomas",
+							"part": "John"
+						},
+						{
+							"img": "assets/img/VA/1/keeper.png",
+							"url": "https://www.castingcall.club/amongvoices",
+							"name": "Karl Christopher Kamekawa",
+							"part": "The Keeper"
+						},
+						{
+							"img": "assets/img/VA/2/Possesed.png",
+							"url": "https://bsky.app/profile/biscuitoas.bsky.social",
+							"name": "BiscuitOnAStick",
+							"part": "The Possessed"
+						},
+						{
+							"img": "assets/img/VA/2/corrupt.png",
+							"name": "Isaac Brown",
+							"part": "Walter"
+						},
+						{
+							"img": "assets/img/VA/2/Witch.png",
+							"url": "https://linktr.ee/WisdomOfCenturies",
+							"name": "Vic Danvers",
+							"part": "The Witch"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "ch3",
+			"label": "Chapter 3",
+			"category": "chapter",
+			"sections": [
+				{ "role": "Game Developer", "items": ["Dinde451"] },
+				{
+					"role": "Artists",
+					"items": [
+						"Dinde451 – Texture &amp; Sprite",
+						"<a href=\"https://gd.games/LizzyGoober\" target=\"_blank\">LizzyGoober</a> – UI Artist"
+					]
+				},
+				{
+					"role": "Composer / SFX",
+					"items": [
+						"<a href=\"https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg\" target=\"_blank\">Alicia Wan (Aethereali)</a> – Pianist",
+						"<a href=\"https://www.instagram.com/abril_liberfarb?igsh=dzd1dDhldXZ4cnF4\" target=\"_blank\">Abril Liberfarb</a> – Sound Designer",
+						"<a href=\"https://www.youtube.com/@kill_figuree\" target=\"_blank\">Kill Figure</a> – Audio Engineering",
+						"<a href=\"https://www.youtube.com/@philzeo\" target=\"_blank\">Phil Zeo</a> – Audio Engineering",
+						"<a href=\"https://www.instagram.com/markmarindc\" target=\"_blank\">Mark Marin</a> – Audio Engineering"
+					]
+				},
+				{
+					"role": "Voice Actors",
+					"va": [
+						{
+							"img": "assets/img/VA/2/Dorothy.png",
+							"url": "https://www.youtube.com/channel/UCi2a4Ob-JJ1Jv_bgMgSMvOg",
+							"name": "Alicia Wan (Aethereali)",
+							"part": "Dorothy Jenkins"
+						},
+						{
+							"img": "assets/img/VA/3/meatFreak.png",
+							"url": "https://youtube.com/@vivighostiviv?si=6EmpkAiqACNelLN5",
+							"name": "VIVI GHOST IVIV",
+							"part": "The temple creature"
+						},
+						{
+							"img": "assets/img/VA/3/crawler.png",
+							"name": "Jack Harrison",
+							"part": "The cave monster"
+						},
+						{
+							"img": "assets/img/VA/3/fatFreak.png",
+							"name": "TheGreatWyrm",
+							"part": "The temple key keeper"
+						},
+						{
+							"img": "assets/img/VA/3/cultFreak.png",
+							"url": "https://youtube.com/@dubachthekeeperhorror",
+							"name": "Dubach The Keeper",
+							"part": "The freak cultist"
+						},
+						{
+							"img": "assets/img/VA/1/bob.png",
+							"url": "https://www.castingcall.club/amongvoices",
+							"name": "Karl Christopher Kamekawa",
+							"part": "Bob"
+						},
+						{
+							"img": "assets/img/VA/2/Olson.png",
+							"url": "https://lewissaundersvo.com/",
+							"name": "Lewis Saunders",
+							"part": "Father Olson"
+						},
+						{
+							"img": "assets/img/VA/3/freakCornwell.png",
+							"url": "https://www.instagram.com/rappaccinis_daughter/",
+							"name": "Daphne Forbes",
+							"part": "The freak hag"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "side1",
+			"label": "Coming Soon",
+			"category": "side-story",
+			"sections": []
+		}
+	]
+}
